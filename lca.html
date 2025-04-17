@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/green-icon.png">
+    <title>LCA Tools</title>
+    <link rel="stylesheet" href="./css/lca.css">
+</head>
+<body>
+
+  <div class="progressbar">
+      <div class="step-item active" id="side-step-1">
+        <span class="step-indicator"></span>
+        <span class="step-label">Product</span>
+      </div>
+      <div class="step-item" id="side-step-2">
+        <span class="step-indicator"></span>
+        <span class="step-label">Materials</span>
+      </div>
+      <div class="step-item" id="side-step-3">
+        <span class="step-indicator"></span>
+        <span class="step-label">Packaging</span>
+      </div>
+      <div class="step-item" id="side-step-4">
+        <span class="step-indicator"></span>
+        <span class="step-label">Energy</span>
+      </div>
+      <div class="step-item" id="side-step-5">
+        <span class="step-indicator"></span>
+        <span class="step-label">Transportation</span>
+      </div>
+      <div class="step-item" id="side-step-6">
+        <span class="step-indicator"></span>
+        <span class="step-label">Results</span>
+      </div>
+    </div>
+    
+
+<div class="content">
+  <div id="step1" class="form-section active">
+    <h2>Product Information</h2>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Product Name </label>
+        <input type="text" />
+      </div>
+      <div class="form-group">
+        <label>Product Weight</label>
+        <input type="number" />
+      </div>
+      <div class="form-group">
+        <label>Product Category</label>
+        <select>
+          <option>Apparels</option>
+          <option>Bags and acessories</option>
+          <option>Book,movie,cinema</option>
+          <option>Electronics</option>
+          <option>Cosmetics,pharma</option>
+          <option>furniture/woodwork</option>
+          <option>Household appliances</option>
+          <option>Automotives</option>
+          <option>Shoes</option>
+          <option>Sports and outdoor</option>
+          <option>Toys, plastic</option>
+          <option>Toy and baby plastic</option>
+          <option>Garden and pets</option>
+          <option>Hobby and craft supplies</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Product Code</label>
+        <input type="text" />
+      </div>
+    </div>
+    <button type="button" class="btn" onclick="nextStep()">Next</button><br><br>
+    <div class="btnn-container">
+      <a href="benefits-lca.html" class="btnn" >Benefits of LCA Tool</a>
+      <a href="methodology.html" class="btnn" >Methodology of LCA Tool</a>
+    </div>
+    
+  </div>
+
+
+
+<!-- Inside step2 - Materials Information -->
+<div id="step2" class="form-section">
+  <h2>Materials Information</h2>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Part name</label>
+      <input type="text" />
+    </div>
+    <div class="form-group">
+      <label>Material category</label>
+      <select id="materialCategory">
+        <option value="">Category</option>
+        <option value="Chemicals">Chemicals</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Foam">Foam</option>
+        <option value="Glass">Glass</option>
+        <option value="Coating">Coating,sealant and paint</option>
+        <option value="Insulation">Insulation materials</option>
+        <option value="Metals">Metals</option>
+        <option value="Minerals">Minerals</option>
+        <option value="Papers">Papers</option>
+        <option value="Plastics">Plastics</option>
+        <option value="Rubber">Rubber/Elastomers</option>
+        <option value="Stone">Stone</option>
+        <option value="Textile">Textile</option>
+        <option value="Wood">Wood based material</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Subcategory</label>
+      <select id="materialSubcategory">
+        <option value="">Subcategory</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Weight</label>
+      <input type="number" />
+    </div>
+  </div>
+  <button type="button" class="btn" onclick="prevStep()">Previous</button>
+  <button type="button" class="btn" onclick="nextStep()">Next</button>
+  <div class="btnn-container">
+    <a href="benefits-lca.html" class="btnn" >Benefits of LCA Tool</a>
+    <a href="methodology.html" class="btnn" >Methodology of LCA Tool</a>
+  </div>
+</div>
+
+<div id="step3" class="form-section">
+  <h2>Packaging Information</h2>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Packaging name</label>
+      <input type="text" />
+    </div>
+    <div class="form-group">
+      <label>Material category</label>
+      <select id="mateCategory">
+        <option value="">Category</option>
+        <option value="Plastics">Plastics</option>
+        <option value="Paper">Paper</option>
+        <option value="Foam">Foam</option>
+        <option value="Glass">Glass</option>
+        <option value="Insulation material">Insulation material</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Subcategory</label>
+      <select id="mateSubcategory">
+        <option value="">Subcategory</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Weight</label>
+      <input type="number" />
+    </div>
+  </div>
+  <button type="button" class="btn" onclick="prevStep()">Previous</button>
+  <button type="button" class="btn" onclick="nextStep()">Next</button>
+  <div class="btnn-container">
+    <a href="benefits-lca.html" class="btnn" >Benefits of LCA Tool</a>
+    <a href="methodology.html" class="btnn" >Methodology of LCA Tool</a>
+  </div>
+</div>
+
+  <div id="step4" class="form-section">
+    <h2>Energy Usage</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Energy source</label>
+        <select id="energySource" onchange="updateUnits()">
+          <option value="">Source</option>
+          <option value="Grid electricity">Grid electricity</option>
+          <option value="Petrol/Gasoline">Petrol/Gasoline</option>
+          <option value="Diesel">Diesel</option>
+          <option value="LPG">LPG</option>
+          <option value="Natural gas">Natural gas</option>
+          <option value="Coal">Coal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Unit</label>
+        <select id="energyUnit">
+          <option value="">Unit</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Amount of energy</label>
+        <input type="number" />
+      </div>
+    </div>
+    <button type="button" class="btn" onclick="prevStep()">Previous</button>
+    <button type="button" class="btn" onclick="nextStep()">Next</button>
+    <div class="btnn-container">
+      <a href="benefits-lca.html" class="btnn" >Benefits of LCA Tool</a>
+      <a href="methodology.html" class="btnn" >Methodology of LCA Tool</a>
+    </div>
+  </div>
+
+  <div id="step5" class="form-section">
+    <h2>Transportation</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Distance (km)</label>
+        <input type="number" />
+      </div>
+      <div class="form-group">
+        <label>Mode of Transport</label>
+        <select>
+          <option >Mode</option>
+          <option>Air</option>
+          <option>Ships</option>
+          <option>Heavy trucks</option>
+          <option>Vans</option>
+          <option>Rail</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label>Unit</label>
+          <select>
+            <option>Unit</option>
+            <option>km</option>
+            <option>miles</option>
+          </select>
+        </div>
+    </div>
+    <button type="button" class="btn" onclick="prevStep()">Previous</button>
+    <button type="button" class="btn" onclick="nextStep()">Next</button>
+    <div class="btnn-container">
+      <a href="benefits-lca.html" class="btnn" >Benefits of LCA Tool</a>
+      <a href="methodology.html" class="btnn" >Methodology of LCA Tool</a>
+    </div>
+  </div>
+
+  <div id="step6" class="form-section">
+    <h2>Results Summary</h2>
+    <table border="1" cellpadding="10" cellspacing="0" style="width:100%; background-color: #2e2e2e; color: white;">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Carbon Footprint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Materials</td>
+          <td>0.00</td>
+        </tr>
+        <tr>
+          <td>Packaging</td>
+          <td>0.00</td>
+        </tr>
+        <tr>
+          <td>Energy</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Transportation</td>
+          <td>0.00</td>
+        </tr>
+        <tr>
+          <td>Total Carbon Footprint</td>
+          <td>0.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn" onclick="prevStep()">Previous</button>
+    <div class="btnn-container">
+      <a href="benefits-lca.html" class="btnn" >Benefits of LCA Tool</a>
+      <a href="methodology.html" class="btnn" >Methodology of LCA Tool</a>
+    </div>
+  </div>
+</div>
+
+<script src="script/script.js"></script>
+
+</body>
+    </html>
