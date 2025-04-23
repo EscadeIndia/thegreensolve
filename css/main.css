@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #02403d;
+  font-family: "Montserrat", sans-serif;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+header {
+  padding: 2rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+header .container nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+header .container nav button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 48px;
+  width: 48px;
+}
+header .container nav button .bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+header .container nav button .bar::before, header .container nav button .bar::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #dbff42;
+}
+header .container nav button:hover .bar {
+  gap: 0.4rem;
+}
+
+.overlay-menu {
+  background-color: #02403d;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+}
+.overlay-menu .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.overlay-menu .container nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: thin solid rgba(219, 255, 66, 0.2);
+  padding-bottom: 2rem;
+}
+.overlay-menu .container nav a {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #dbff42;
+  text-decoration: none;
+  font-family: "Special Gothic Expanded One", sans-serif;
+}
+.overlay-menu .container nav a:hover {
+  color: #0e6662;
+}
+.overlay-menu .container .social-icons {
+  display: flex;
+  justify-content: start;
+  gap: 2rem;
+}
+.overlay-menu .container .social-icons a {
+  color: #dbff42;
+  font-size: 2rem;
+}
+.overlay-menu .container .social-icons a:hover {
+  color: #0e6662;
+}
+
+.logo {
+  display: flex;
+}
+.logo img {
+  display: block;
+  height: 48px;
+}
+
+.link-button {
+  border: thin solid #dbff42;
+  color: #dbff42;
+  padding: 0.8rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 1rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  background-color: rgba(219, 255, 66, 0.05);
+  font-weight: 500;
+}
+.link-button:hover {
+  background-color: #dbff42;
+  color: #02403d;
+}
+
+.link-cta {
+  background-color: #dbff42 !important;
+  color: #02403d;
+  border-color: transparent !important;
+}
+.link-cta:hover {
+  background-color: #02403d !important;
+  color: #dbff42 !important;
+}
+
+section {
+  height: 100%;
+  position: relative;
+  padding: 100px 0;
+}
+
+.hero-section {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 200px;
+}
+.hero-section .title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 1rem;
+  color: #dbff42;
+  font-family: "Special Gothic Expanded One", sans-serif;
+}
+.hero-section .subtitle {
+  color: white;
+  font-size: clamp(1rem, 5vw, 2rem);
+  margin-bottom: 2rem;
+}
+.hero-section p {
+  color: white;
+  margin-bottom: 2rem;
+}
+.hero-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 64, 61, 0.6);
+  z-index: 1;
+}
+.hero-section video {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+$primary-color: #02403d;
+$secondary-color: #0e6662;
+$accent-color: #dbff42;
+$heading-color: $accent-color;
+$subheading-color: #9bad49;
+$paragraph-color: white;
+$heading-font: "Special Gothic Expanded One", sans-serif;
+$body-font: "Montserrat", sans-serif;
+
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background-color: $primary-color;
+    font-family: $body-font;
+}
+
+.link {
+    text-decoration: none;
+    color: $paragraph-color;
+}
+
+header {
+    padding: 2rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+
+            button {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                height: 48px;
+                width: 48px;
+
+                .bar {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .6rem;
+                    width: 100%;
+
+                    &::before,
+                    &::after {
+                        content: '';
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        background-color: $accent-color;
+                    }
+                }
+                &:hover{
+                    .bar{
+                        gap: .4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.overlay-menu{
+    background-color: $primary-color;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        nav{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: thin solid rgba($accent-color, 0.2);
+            padding-bottom: 2rem;
+            a{
+                font-size: 2rem;
+                font-weight: 500;
+                color: $accent-color;
+                text-decoration: none;
+                font-family: $heading-font;
+                &:hover{
+                    color: $secondary-color;
+                }
+            }
+        }
+        .social-icons{
+            display: flex;
+            justify-content: start;
+            gap: 2rem;
+            a{
+                color: $accent-color;
+                font-size: 2rem;
+                &:hover{
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+}
+.logo {
+    display: flex;
+
+    img {
+        display: block;
+        height: 48px;
+    }
+}
+
+.link-button {
+    border: thin solid $accent-color;
+    color: $accent-color;
+    padding: .8rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    display: flex;
+    width: fit-content;
+    gap: 1rem;
+    backdrop-filter: blur(5px);
+    background-color: rgba($accent-color, 0.05);
+    font-weight: 500;
+
+    &:hover {
+        background-color: rgba($accent-color, 1);
+        color: $primary-color;
+    }
+}
+
+.link-cta {
+    background-color: rgba($accent-color, 1) !important;
+    color: $primary-color;
+    border-color: transparent !important;
+
+    &:hover {
+        background-color: $primary-color !important;
+        color: $accent-color !important;
+    }
+}
+
+section {
+    height: 100%;
+    position: relative;
+    padding: 100px 0;
+}
+
+.hero-section {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 200px;
+
+    .title {
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 1rem;
+        color: $accent-color;
+        font-family: $heading-font;
+    }
+
+    .subtitle {
+        color: white;
+        font-size: clamp(1rem, 5vw, 2rem);
+        margin-bottom: 2rem;
+    }
+
+    p {
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($primary-color, 0.6);
+        z-index: 1;
+    }
+
+    video {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+}
