@@ -1,3 +1,5 @@
+AOS.init();
+
 $('.btnMenu').on('click', function () {
   $('.overlay-menu').toggleClass('open-menu');
 });
@@ -237,4 +239,27 @@ window.addEventListener('scroll', () => {
     const top = el.offsetTop;
     el.style.transform = `translateY(-${ (y > top) ? y / 3 : 0 }px)`;
   });
+});
+
+
+$("#teams").owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  dots: false,
+  autoplay: true,
+  autoplayTimeout: 3000,
+  autoplayHoverPause: true,
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 1
+    },
+    1000: {
+      items: 2
+    }
+  }
 });
