@@ -24,6 +24,8 @@ header {
   left: 0;
   width: 100%;
   z-index: 100;
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  border-bottom: thin solid transparent;
 }
 header .container {
   display: flex;
@@ -62,8 +64,17 @@ header .container nav button:hover .bar {
   gap: 0.4rem;
 }
 
+.scrolled {
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  background: rgba(2, 64, 61, 0.8);
+  -webkit-backdrop-filter: blur(24px);
+          backdrop-filter: blur(24px);
+  color: white;
+  padding: 1rem 0;
+  border-bottom-color: rgba(219, 255, 66, 0.08);
+}
+
 .overlay-menu {
-  background-color: #02403d;
   color: white;
   position: fixed;
   top: 0;
@@ -71,20 +82,58 @@ header .container nav button:hover .bar {
   width: 100%;
   height: 100%;
   z-index: 1000;
-  display: none;
+  display: block;
+  overflow: auto;
+  visibility: hidden;
+}
+.overlay-menu::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(24px);
+          backdrop-filter: blur(24px);
+  background-color: rgba(2, 64, 61, 0.8);
+  background-image: url("../images/bg-element.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .overlay-menu .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  position: relative;
+  height: 100%;
+}
+.overlay-menu .container .btnClose {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  font-size: 2rem;
+  color: #dbff42;
+  opacity: 0.5;
+}
+.overlay-menu .container .btnClose:hover {
+  opacity: 1;
 }
 .overlay-menu .container nav {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border-bottom: thin solid rgba(219, 255, 66, 0.2);
-  padding-bottom: 2rem;
 }
 .overlay-menu .container nav a {
   font-size: 2rem;
@@ -92,14 +141,31 @@ header .container nav button:hover .bar {
   color: #dbff42;
   text-decoration: none;
   font-family: "Special Gothic Expanded One", sans-serif;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .overlay-menu .container nav a:hover {
-  color: #0e6662;
+  color: #9bad49;
+}
+.overlay-menu .container nav .active {
+  color: #9bad49;
+  position: relative;
+}
+.overlay-menu .container nav .active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #dbff42;
 }
 .overlay-menu .container .social-icons {
   display: flex;
   justify-content: start;
-  gap: 2rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 .overlay-menu .container .social-icons a {
   color: #dbff42;
@@ -107,6 +173,70 @@ header .container nav button:hover .bar {
 }
 .overlay-menu .container .social-icons a:hover {
   color: #0e6662;
+}
+.overlay-menu .container .contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+.overlay-menu .container .contact-details li {
+  background-color: rgba(219, 255, 66, 0.08);
+  border: thin solid rgba(219, 255, 66, 0.08);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.overlay-menu .container .contact-details li i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 56px;
+  border-radius: 100%;
+  background-color: rgba(219, 255, 66, 0.08);
+  border: thin solid rgba(219, 255, 66, 0.08);
+  font-size: 22px;
+  color: #dbff42;
+}
+.overlay-menu .container .contact-details li h5 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: calc(100% - 56px);
+}
+.overlay-menu .container .contact-details li h5 small {
+  font-size: 0.8rem;
+}
+.overlay-menu .container .contact-details li h5 a {
+  font-size: 1.24rem;
+}
+.overlay-menu .container .contact-details li h5 a:hover {
+  color: #dbff42 !important;
+}
+.overlay-menu .container .contact-details li:hover {
+  background-color: rgba(14, 102, 98, 0.08);
+  border: thin solid rgba(14, 102, 98, 0.08);
+}
+.overlay-menu .container .contact-details a {
+  color: #dbff42;
+  text-decoration: none;
+}
+.overlay-menu .container .contact-details a:hover {
+  color: #0e6662;
+}
+
+.open-menu {
+  visibility: visible;
+}
+.open-menu .container {
+  display: flex;
+}
+.open-menu::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .logo {
@@ -148,9 +278,57 @@ header .container nav button:hover .bar {
 }
 
 section {
-  height: 100%;
   position: relative;
   padding: 100px 0;
+}
+section .title {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: #dbff42;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+section .title small {
+  font-size: clamp(0.8rem, 5vw, 1.5rem);
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+}
+section p {
+  color: white;
+}
+
+.section-alt {
+  background-color: #0e6662;
+}
+
+.section-dark {
+  background-color: #02403d;
+}
+.section-dark .title {
+  color: #dbff42;
+}
+.section-dark .title small {
+  color: rgba(219, 255, 66, 0.5);
+}
+.section-dark p {
+  color: white;
+}
+
+.section-light {
+  background-color: white;
+}
+.section-light .title {
+  color: #02403d;
+}
+.section-light .title small {
+  color: #9bad49;
+}
+.section-light p {
+  color: #333;
 }
 
 .hero-section {
@@ -158,6 +336,8 @@ section {
   display: flex;
   align-items: center;
   padding-top: 200px;
+  height: 100%;
+  position: relative;
 }
 .hero-section .title {
   font-size: clamp(2rem, 5vw, 4rem);
@@ -187,17 +367,61 @@ section {
   background-color: rgba(2, 64, 61, 0.6);
   z-index: 1;
 }
-.hero-section video {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
 .hero-section .container {
   position: relative;
   z-index: 2;
+}
+
+.slide-bg {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  z-index: -1;
+}
+.slide-bg > video, .slide-bg > img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.data-card {
+  border: thin solid rgba(219, 255, 66, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(219, 255, 66, 0.08);
+}
+.data-card .img {
+  display: block;
+}
+.data-card .content .card-title {
+  font-size: 1.24rem;
+  font-weight: 600;
+  color: #dbff42;
+}
+
+#about .data-card {
+  height: 100%;
+}
+#about .data-card .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(219, 255, 66, 0.2);
+  height: 56px;
+  width: 56px;
+  border-radius: 100%;
+}
+#about .data-card .img i {
+  font-size: 2rem;
+  color: white;
+}
+#about .data-card .content .card-title {
+  color: white;
+  font-weight: 400;
+  font-size: 1.16rem;
 }/*# sourceMappingURL=main.css.map */
